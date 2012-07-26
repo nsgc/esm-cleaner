@@ -17,20 +17,29 @@
   %li= user.name
 
 %div= link_to '新規東京支社配属者を登録', :new_user
+%div= link_to '東京支社一覧', :users
 
 - if Rails.env == 'development'
+  %hr
+  %h3 以下は開発時のみ表示されます
   %div= button_to 'Assign', :action => 'assign'
+  %div= button_to 'Data Init', :action => 'init'
 
-  %h3 debug & demo
   %table
     %tr
-      %th user.name
-      %th user.throw_status
-      %th user.vacuum_up_status
-      %th user.wiping_status
+      %th なまえ
+      %th ごみほり
+      %th そうじき
+      %th てーぶるふき
     - @users.each do |user|
       %tr
         %td= user.name
-        %td= user.throw_status
-        %td= user.vacuum_up_status
-        %td= user.wiping_status
+        %td
+          = user.throw_status
+          = "(#{user.throw_date})"
+        %td
+          = user.vacuum_up_status
+          = "(#{user.vacuum_up_date})"
+        %td
+          = user.wiping_status
+          = "(#{user.wiping_date})"

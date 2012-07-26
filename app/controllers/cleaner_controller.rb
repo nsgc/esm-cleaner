@@ -10,4 +10,9 @@ class CleanerController < ApplicationController
     User.rehash_cleaners
     redirect_to root_path
   end
+
+  def init
+    load "#{Rails.root}/db/seeds.rb"
+    redirect_to root_path
+  end
 end

@@ -1,0 +1,17 @@
+%h1 Hi Oshige, Hi Sumita
+= link_to 'トップページに戻る', root_path
+
+%table
+  %tr
+    %th 名前
+    %th ゴミ捨て
+    %th 掃除機
+    %th テーブル拭き
+    %th 支社にいる?
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= status_to_message(user.throw_status)
+      %td= status_to_message(user.vacuum_up_status)
+      %td= status_to_message(user.wiping_status)
+      %td= button_to (user.seated ? '着席している' : '社外常駐'), user_seated_change_path(user)
