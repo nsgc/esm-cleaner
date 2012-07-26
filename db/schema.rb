@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(:version => 20120726021030) do
 
   create_table "users", :force => true do |t|
-    t.string   "name",                                              :null => false
-    t.datetime "throw_dete",     :default => '1980-08-10 15:00:00'
-    t.datetime "wiping_date",    :default => '1980-08-10 15:00:00'
-    t.datetime "vacuum_up_date", :default => '1980-08-10 15:00:00'
-    t.boolean  "seated",         :default => true
-    t.boolean  "throw_done",     :default => false
-    t.boolean  "wiping_done",    :default => false
-    t.boolean  "vacuum_up_done", :default => false
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
+    t.string   "name",                                                :null => false
+    t.datetime "throw_date",       :default => '1980-08-10 15:00:00'
+    t.datetime "wiping_date",      :default => '1980-08-10 15:00:00'
+    t.datetime "vacuum_up_date",   :default => '1980-08-10 15:00:00'
+    t.boolean  "seated",           :default => true
+    t.string   "throw_status",     :default => "todo"
+    t.string   "wiping_status",    :default => "todo"
+    t.string   "vacuum_up_status", :default => "todo"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
   end
 
 end
