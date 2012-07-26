@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :throw_date, :vacuum_up_date, :wiping_date, :seated, :throw_status, :vacuum_up_status, :wiping_status
 
   scope :recent_no_worker, proc {
-    last_week = 1.week.ago.at_beginning_of_week
-    where('vacuum_up_date < ? AND wiping_date < ? AND throw_date < ?', last_week, last_week, last_week)
+    this_week_beginning_day = Date.today.at_beginning_of_week - 1
+    where('vacuum_up_date < ? AND wiping_date < ? AND throw_date < ?', this_week_beginning_day, this_week_beginning_day, this_week_beginning_day)
   }
 
   scope :thrower_target, proc {
