@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
     next_wipingers = User.wipingner_target
 
     if (next_throwers.size < 2) && (next_vacuumers.size < 2) && (next_wipingers.size < 2)
-      p 'all_cleaners_todo'
       self.all_cleaners_todo
     end
 
