@@ -1,0 +1,35 @@
+%h1 ESM Cleaner Beta
+= flash[:notice]
+
+%h2 ゴミほり
+%ul
+- @thowers.each do |user|
+  %li= user.name
+
+%h2 掃除機
+%ul
+- @vacuumers.each do |user|
+  %li= user.name
+
+%h2 テーブル拭き
+%ul
+- @wipingers.each do |user|
+  %li= user.name
+
+%div= link_to '新規東京支社配属者を登録', :new_user
+
+%div= button_to 'Assign', :action => 'assign'
+
+%h3 debug & demo
+%table
+  %tr
+    %th user.name
+    %th user.throw_status
+    %th user.vacuum_up_status
+    %th user.wiping_status
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.throw_status
+      %td= user.vacuum_up_status
+      %td= user.wiping_status
