@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails'
 
-gem 'mysql2'
+gem 'pg'
 gem 'haml-rails'
 gem 'jquery-rails'
 
-gem 'whenever', :require => false
+gem 'whenever', require: false
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
